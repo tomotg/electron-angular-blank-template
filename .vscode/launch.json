@@ -1,0 +1,36 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+             "type": "node",
+            "request": "launch",
+            "name": "Electron with Angular Server",
+            "env": {"NODE_ENV": "development", "NG_SERVER": "true"},
+            "preLaunchTask": "npm: tsc-mainprocess-debug",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd",
+            },
+            "program": "${workspaceFolder}/dist/main-process/main.js",
+            "protocol": "inspector",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Angular build and Electron launch",
+            "env": {"NODE_ENV": "development", "NG_SERVER": "false"},
+            "preLaunchTask": "npm: build-debug",
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron",
+            "windows": {
+                "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron.cmd",
+            },
+            "program": "${workspaceFolder}/dist/main-process/main.js",
+            "protocol": "inspector",
+            "console": "integratedTerminal"
+        }
+    ]
+}
